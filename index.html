@@ -15,6 +15,11 @@
      
    <main class="wrapper">
  
+    <h3>Purpose:</h3>
+    <p>This page demonstrates data processing of query string data using client side JavaScript.
+
+      Upon submission, the cart items are totaled and title case is applied to the Shipping Info.</p>
+
     <h2 class="subheader">Insert your shipping information below:</h2>
 
     <form method="get" action="" class="main-form">
@@ -50,7 +55,7 @@
     </div>
         <div>
       <label for="PostalCode">Postal Code</label><br>
-      <input type="text" name="City" id="PostalCode" placeholder="PostalCode" required>
+      <input type="text" name="City" id="PostalCode" placeholder="Postal Code" required>
     </div>
     <div>
       <label for="Note">Note</label><br>
@@ -84,8 +89,18 @@ if(queryString.length > 0){//form submitted!
 
        urlParams.forEach(function(value,key){
         //console.log(value)
-       
-        key = key.split("_").join(" ");
+
+            key = key.split("_").join(" ");
+
+          /*title case first, last, address and city only
+            switch(key){
+              case "First Name":
+              case "Last Name":
+              case "Address":
+              case "City":
+                value = titleCase(Value);
+                break;
+            } */
         myOutput += `<p>${key}: ${value}</p>`;
        });
 
